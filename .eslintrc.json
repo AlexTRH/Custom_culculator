@@ -1,23 +1,31 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
-    },
-    "extends": ["airbnb-base", "prettier"],
-    "overrides": [
-    ],
-    "parser": "babel-eslint",
-    "parserOptions": {
-            "ecmaFeatures": {
-                "jsx": true
-            },
-        "ecmaVersion": "latest",
-        "sourceType": "module"
-    },
-    "plugins": [ 
-        "prettier"
-    ],
-    "rules": {
-        "prettier/prettier": "error"
-    }
+	"env": {
+		"browser": true,
+		"es2021": true
+	},
+	"extends": ["airbnb-base", "prettier"],
+	"overrides": [],
+	"parser": "@babel/eslint-parser",
+	"parserOptions": {
+		"requireConfigFile": false,
+		"babelOptions": {
+			"babelrc": false,
+			"configFile": false,
+			"presets": ["@babel/preset-env"]
+		},
+		"ecmaFeatures": {},
+		"ecmaVersion": "latest",
+		"sourceType": "module"
+	},
+	"plugins": ["prettier"],
+	"rules": {
+		"prettier/prettier": [
+			"error",
+			{
+				"singleQuote": true,
+				"parser": "flow",
+				"endOfLine": "auto"
+			}
+		]
+	}
 }
