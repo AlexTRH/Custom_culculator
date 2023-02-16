@@ -62,13 +62,6 @@ document.querySelector('.buttons').onclick = (event) => {
 		return;
 	}
 
-	function factorial(n) {
-		if (n === 1) {
-			return 1;
-		}
-		return n * factorial(n - 1);
-	}
-
 	if (key === '=') {
 		if (b === '') b = a;
 		switch (sign) {
