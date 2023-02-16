@@ -4,9 +4,24 @@ let sign = '';
 let finish = false;
 
 const digit = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
-const action = ['-', '+', 'x', '&divide;'];
+const action = [
+	'-',
+	'+',
+	'x',
+	'/',
+	'',
+	'x²',
+	'²√x',
+	'³√x',
+	'ʸ√x',
+	'%',
+	'+/-',
+	'10ˣ',
+	'1/x',
+	'x!',
+];
 
-const out = document.querySelector('.calc_screen p');
+const out = document.querySelector('.calc_screen');
 
 function clearAll() {
 	a = '';
@@ -24,27 +39,34 @@ document.querySelector('.buttons').onclick = (event) => {
 	out.textContent = '';
 
 	const key = event.target.textContent;
+	console.log(key);
 	if (digit.includes(key)) {
 		if (b === '' && sign === '') {
-			a += key;
+			a += +key;
 			out.textContent = a;
 		} else if (a !== '' && b !== '' && finish) {
-			b = key;
+			b += +key;
 			finish = false;
 			out.textContent = b;
 		} else {
-			b += key;
+			b += +key;
 			out.textContent = b;
 		}
-		console.log(a, b, sign);
+
 		return;
 	}
 
 	if (action.includes(key)) {
 		sign = key;
 		out.textContent = sign;
-		console.log(a, b, sign);
 		return;
+	}
+
+	function factorial(n) {
+		if (n === 1) {
+			return 1;
+		}
+		return n * factorial(n - 1);
 	}
 
 	if (key === '=') {
@@ -59,7 +81,7 @@ document.querySelector('.buttons').onclick = (event) => {
 			case 'x':
 				a *= b;
 				break;
-			case '&divide;':
+			case '/':
 				if (b === '0') {
 					out.textContent = 'Error';
 					a = '';
@@ -69,11 +91,76 @@ document.querySelector('.buttons').onclick = (event) => {
 				}
 				a /= b;
 				break;
+			case '%':
+				if (a < 0) {
+					out.textContent = '0';
+					a = '';
+					b = '';
+					sign = '';
+					return;
+				}
+				a /= 100;
+				break;
+			case '+/-':
+				a *= -1;
+				break;
+			case 'x²':
+				a **= 2;
+				break;
+			case 'x³':
+				a **= 3;
+				break;
+			case 'xʸ':
+				a **= b;
+				break;
+			case '²√x':
+				if (a < 0) {
+					out.textContent = 'Error';
+					a = '';
+					b = '';
+					sign = '';
+					return;
+				}
+				a **= 1 / 2;
+				break;
+			case '³√x':
+				if (a < 0) {
+					out.textContent = 'Error';
+					a = '';
+					b = '';
+					sign = '';
+					return;
+				}
+				a **= 1 / 3;
+				break;
+			case 'ʸ√x':
+				if (a < 0) {
+					out.textContent = 'Error';
+					a = '';
+					b = '';
+					sign = '';
+					return;
+				}
+				a **= 1 / b;
+				break;
+			case '10ˣ':
+				a = 10 ** a;
+				break;
+			case '1/x':
+				a = 1 / a;
+				break;
+			case 'x!':
+				let f = 1;
+				while (a > 1) {
+					f *= a;
+					a -= 1;
+					return a;
+				}
+				break;
 			default:
 		}
 		finish = true;
 		out.textContent = a;
-		console.table(a, b, sign);
 	}
+	console.log(a, b, sign);
 };
-fafaf;
