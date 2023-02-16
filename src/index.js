@@ -150,12 +150,6 @@ document.querySelector('.buttons').onclick = (event) => {
 				a = 1 / a;
 				break;
 			case 'x!':
-				let f = 1;
-				while (a > 1) {
-					f *= a;
-					a -= 1;
-					return a;
-				}
 				break;
 			default:
 		}
