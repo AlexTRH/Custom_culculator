@@ -2,55 +2,129 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Calculator</title>
-	<link rel="stylesheet" href="./main.css" />
-	<script src="index.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculator</title>
+  <link rel="stylesheet" href="./main.css" />
 </head>
-
 <body>
-	<div class="calculator_grid">
-		<div class="output">
-			<div data_calc_memory class="calc_memory"></div>
-			<div data_previous_operand class="previous_operand"></div>
-			<div data_current_operand class="current_operand"></div>
-		</div>
-		<button data_add_value class="bg_black">m+</button>
-		<button data_memory_clear class="span_two bg_black">mc</button>
-		<button data_all_clear class="bg_black">AC</button>
-		<button data_change_sign class="bg_black">+/-</button>
-		<button data_single_operation class="bg_black">%</button>
-		<button data_operation class="bg_orange">÷</button>
-		<button data_sub_value class="bg_black">m-</button>
-		<button data_memory_read class="span_two bg_black">mr</button>
-		<button data_number class="bg_grey">7</button>
-		<button data_number class="bg_grey">8</button>
-		<button data_number class="bg_grey">9</button>
-		<button data_operation class="bg_orange">x</button>
-		<button data_single_operation id="pow_two" class="bg_black">x²</button>
-		<button data_single_operation id="pow_three" class="bg_black">x³</button>
-		<button data_operation class="bg_black">xʸ</button>
-		<button data_number class="bg_grey">4</button>
-		<button data_number class="bg_grey">5</button>
-		<button data_number class="bg_grey">6</button>
-		<button data_operation class="bg_orange">-</button>
-		<button data_single_operation id="pow_x" class="bg_black">10ˣ</button>
-		<button data_single_operation class="bg_black">1/x</button>
-		<button data_single_operation class="bg_black">x!</button>
-		<button data_number class="bg_grey">1</button>
-		<button data_number class="bg_grey">2</button>
-		<button data_number class="bg_grey">3</button>
-		<button data_operation class="bg_orange">+</button>
-		<button data_single_operation id="sqrt" class="border_left bg_black">²√x</button>
-		<button data_single_operation id="cbrt" class="bg_black">³√x</button>
-		<button data_operation id="y_root" class="bg_black">ʸ√x</button>
-		<button data_number class="span_two bg_grey">0</button>
-		<button data_number class="bg_grey">.</button>
-		<button data_equals class="border_right bg_orange">=</button>
-		<!-- <button data_delete>DEL</button> -->
-	</div>
+  <div class="header">
+    <div class="prev_operation" id="prevOperation">
+      <h2 class="prev_operation_text">Back</h2>
+    </div>
+    <div class="theme_wrap" id="themeWrap">
+      <div class="theme_icon selected_theme" id="darkTheme">
+        Dark
+      </div>
+      <div class="theme_icon" id="lightTheme">Light</div>
+    </div>
+    
+    <div class="memory" id="memoryWrap">
+      <h2>M:</h2>
+      <h2 id="memoryValue">0</h2>
+    </div>
+  </div>
+  <div class="wrap">
+    <input class="output"
+    id="output"
+    placeholder="0"
+    readonly/>
+    <div class="table_wrap">
+      <div class="line">
+        <button class="cell" value="MC" name="memory">MC</button>
+        <button class="cell" value="M+" name="memory">M+</button>
+        <button class="cell" value="M-" name="memory">M-</button>
+        <button class="cell" value="MR" name="memory">MR</button>
+        <button class="cell number" value="7">7</button>
+        <button class="cell number" value="8">8</button>
+        <button class="cell number" value="9">9</button>
+        <button class="cell sign" value="÷" name="sign">÷</button>
+      </div>
+      <div class="line">
+        <button
+        class="cell pow"
+        value="x^2"
+        name="oneValueCommands"
+        >
+        x²
+      </button>
+      <button
+      class="cell pow"
+      value="x^3"
+      name="oneValueCommands"
+      >
+      x³
+    </button>
+        <button
+        class="cell pow"
+        value="x^y"
+        name="twoValueCommands"
+        >
+        xʸ
+      </button>
+      <button
+            class="cell pow"
+            value="10^x"
+            name="oneValueCommands"
+            >
+            10ˣ
+          </button>
+          <button class="cell number" value="4">4</button>
+          <button class="cell number" value="5">5</button>
+          <button class="cell number" value="6">6</button>
+          <button class="cell sign" value="×" name="sign">×</button>
+        </div>
+        <div class="line">
+          <button class="cell" value="1/x" name="oneValueCommands">
+            1/X
+          </button>
+          <button
+          class="cell pow"
+          value="x^1/2"
+          name="oneValueCommands"
+          >
+          ²√x
+        </button>
+        <button
+        class="cell pow"
+        value="x^1/3"
+        name="oneValueCommands"
+        >
+        ³√x
+      </button>
+      <button
+      class="cell pow"
+      value="x^1/y"
+      name="twoValueCommands"
+      >
+      ʸ√x
+    </button>
+    <button class="cell number" value="1">1</button>
+    <button class="cell number" value="2">2</button>
+    <button class="cell number" value="3">3</button>
+    <button class="cell sign" value="-" name="sign">-</button>
+  </div>
+  <div class="line">
+    <button class="cell border_left" value="!" name="oneValueCommands">
+      X!
+    </button>
+    <button class="cell" value="+/-" name="oneValueCommands">
+      +/-
+    </button>
+    <button class="cell" value="%" name="oneValueCommands">
+      %
+    </button>
+    <button class="cell sign pow" id="allClear">AC</button>
+    <button class="cell number" value="0">0</button>
+    <button class="cell number" value=".">.</button>
+    <button class="cell sign" value="=" name="sign">=</button>
+    <button class="cell sign border_right" value="+" name="sign">+</button>
+  </div>
+</div>
+</div>
+<input class="error_message" id="errorMessage" readonly>
+<script src="index.js"></script>
 </body>
 
 </html>
