@@ -22,7 +22,7 @@ import {
 	lastValueValidation,
 } from './errorHandler';
 
-import { themeChangeDark, themeChangeLight } from './themeChange';
+import { themeChangeDark, themeChangeLight } from './changeTheme';
 
 ALLCLEAR.addEventListener('click', () => {
 	OUTPUT.value = '';
