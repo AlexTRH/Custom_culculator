@@ -9,7 +9,7 @@
 1. Clone this repo
 
 ```
-$git clone https://github.com/mikepetrusha/Innowise-Lab-Internship-Level-0-Custom-calculator.git
+$git clone git@github.com:AlexTRH/Custom_culculator.git
 ```
 
 2. Open the directory in code editor
