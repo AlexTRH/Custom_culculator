@@ -1,32 +1,49 @@
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HTMLInlineCSSWebpackPlugin =
+	require('html-inline-css-webpack-plugin').default;
+const TerserPlugin = require('terser-webpack-plugin');
 const path = require('path');
 const FileManagerPlugin = require('filemanager-webpack-plugin');
 
 module.exports = {
-	entry: path.join(__dirname, 'src', 'index.js'),
+	entry: './src/scripts/index.js',
 	output: {
-		path: path.join(__dirname, 'dist'),
-		filename: 'index.[contenthash].js',
+		path: path.resolve(__dirname, 'dist'),
+		filename: 'main.js',
+	},
+	optimization: {
+		minimizer: [
+			new TerserPlugin({
+				terserOptions: {
+					output: {
+						comments: false,
+					},
+				},
+			}),
+		],
 	},
 	module: {
 		rules: [
 			{
-				test: /\.js$/,
+				test: /\.css$/,
 				use: 'babel-loader',
 				exclude: /node_modules/,
 			},
 			{
 				test: /\.(css)$/,
-				use: ['style-loader', 'css-loader'],
+				use: [MiniCssExtractPlugin.loader, 'css-loader'],
 			},
 		],
 	},
 
 	plugins: [
+		new MiniCssExtractPlugin(),
 		new HtmlWebpackPlugin({
 			template: path.join(__dirname, 'src', 'template.html'),
 			filename: 'index.html',
 		}),
+		new HTMLInlineCSSWebpackPlugin(),
 		new FileManagerPlugin({
 			events: {
 				onStart: {
