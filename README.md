@@ -27,15 +27,15 @@ $git clone git@github.com:AlexTRH/Custom_culculator.git
 📦src                             # Contains all logic of the project
  ┣ 📂styles                       # Holds .css files with app styles
  ┃ ┗ 📜main.css
- ┣ 📂scripts                      #Holds .js files with app scripts
-    ┗ 📜calculator_mode.js        # Contains function that change calculator mode on button click
+ ┣ 📂scripts                      # Holds .js files with app scripts
+    ┗ 📜calculator_mode.js        # Contains function that changes calculator mode on button click
     ┗ 📜index.js                  # Main JS file, contains Calculator class with all calculator variables and two functions
     ┗ 📜numbers.js                # Initializes numbers and clicks on number buttons
     ┗ 📜utils.js                  # Operates with numbers and change the format of result output
     ┗ 📜operations.test.js        # File for "Jest" to test all mathematical operations from operations.js
     ┗ 📜operations.js             # Contains Commands classes with all mathematical operations inside
     ┗ 📜operators.js              # Initializes operators and clicks on operator buttons
-    ┗ 📜 switchTheme.js           # Contains function that change theme on button click
+    ┗ 📜switchTheme.js           # Contains function that change theme on button click
 
 ```
 
