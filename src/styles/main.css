@@ -238,8 +238,14 @@ sub, sup {
 	color: #f39c12;
 }
 
+/* Day Theme */
+
 body.day_theme {
 	background: linear-gradient(180deg, #E9F2F4 0%, #B9C9E1 100%);
+}
+
+.day_theme .label {
+	background-color: var(--torquase);
 }
 
 .day_theme {
