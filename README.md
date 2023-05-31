@@ -14,7 +14,7 @@ $git clone git@github.com:AlexTRH/Custom_culculator.git
 
 2. Open the directory in code editor
 3. Run `$ npm install` to install all the dependencies
-4. Run app with `$ npm webpack serve` to run the app in your browser
+4. Run app with `$ npm run serve` to run the app in your browser
 
 ## Additional scripts
 
