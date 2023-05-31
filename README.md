@@ -4,7 +4,7 @@
 
 ## [Deploy](https://github.com/AlexTRH/Custom_culculator)
 
-## [Demo] (https://main--ebuchi-calculator.netlify.app)
+## [Demo](https://github.com/AlexTRH/Custom_culculator)
 
 ## How to run the app:
 
