@@ -2,8 +2,6 @@
 
 ## [Task](https://drive.google.com/file/d/15jVnBPXaZrjs99KOUxp4TGq6Inau6xq_/view)
 
-## [Deploy](https://github.com/AlexTRH/Custom_culculator)
-
 ## [Demo](https://github.com/AlexTRH/Custom_culculator)
 
 ## How to run the app:
