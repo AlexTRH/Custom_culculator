@@ -2,7 +2,7 @@
 
 ## [Task](https://drive.google.com/file/d/15jVnBPXaZrjs99KOUxp4TGq6Inau6xq_/view)
 
-## [Demo](https://github.com/AlexTRH/Custom_culculator)
+## [Demo](https://ebuchi-calculator.netlify.app/)
 
 ## How to run the app:
 
